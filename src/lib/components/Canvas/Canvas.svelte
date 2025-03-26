@@ -7,16 +7,40 @@
     
     let canvasContainer;
 
+    function parseDimension(dimension) {
+        const match = dimension.match(/^([\d.]+)(mm|px|%)$/);
+        return match ? { value: parseFloat(match[1]), unit: match[2] } : null;
+    }
+
     export async function exportAsImage(filename = "canvas-export.png") {
         if (!canvasContainer) return;
 
         try {
+            const widthDim = parseDimension(width);
+            const heightDim = parseDimension(height);
+
+            if (!widthDim || !heightDim || widthDim.unit !== 'mm' || heightDim.unit !== 'mm') {
+                console.error('Width and height must be in mm for accurate export.');
+                return;
+            }
+
+            const targetDPI = 300; // Adjust target DPI as needed (e.g., 300 for print quality)
+            const desiredWidthPx = (widthDim.value / 25.4) * targetDPI;
+            const desiredHeightPx = (heightDim.value / 25.4) * targetDPI;
+
+            const actualWidthPx = canvasContainer.offsetWidth;
+            const actualHeightPx = canvasContainer.offsetHeight;
+
+            const scaleX = desiredWidthPx / actualWidthPx;
+            const scaleY = desiredHeightPx / actualHeightPx;
+            const scale = Math.max(scaleX, scaleY);
+
             const canvas = await html2canvas(canvasContainer, {
-                scale: 2,
-                useCORS: true, // Enable CORS
-                allowTaint: true, // Allow cross-origin images
+                scale: scale,
+                useCORS: true,
+                allowTaint: true,
                 logging: true,
-                backgroundColor: null // Maintain transparency
+                backgroundColor: null
             });
             
             const dataUrl = canvas.toDataURL('image/png');
