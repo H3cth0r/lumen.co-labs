@@ -1,15 +1,26 @@
 <script>
   import { Workbench, Canvas, ToolBox } from "$lib/components";
-
+  
+  let canvasRef;
+  function handleExport() {
+      if (canvasRef) {
+          canvasRef.exportAsImage(); // Default name: canvas-export.png
+          // or with custom filename:
+          // canvasRef.exportAsImage('my-artwork.png');
+      }
+  }
 </script>
 
 <Workbench>
   
-  <div slot="toolbox">
-      <ToolBox />
-  </div>
-  <div slot="canvas">
+      <ToolBox slot="toolbox">
+        <p>adf</p>
+        <button on:click={handleExport}>Export as Image</button>
+      </ToolBox>
       <Canvas 
+        slot="canvas"
+        bind:this={canvasRef}
+
         height="279mm"
         width="216mm"
         style="background-color: orange;" 
@@ -28,17 +39,17 @@
               </div>
             </div>
       </Canvas>
-  </div>
 </Workbench>
 
 <style>
   .main-container {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-image: url("https://i.pinimg.com/736x/44/ab/7c/44ab7cce4fede6196337b3383fa8f061.jpg");
+    background-image: url("https://www.shutterstock.com/image-vector/sky-bluecloud-background-3d-white-600nw-2279761923.jpg");
     background-size: cover;
   }
   .content-container {

@@ -27,9 +27,7 @@
 
   .toolbox-area {
     background-color: #333;
-    padding: 10px;
   }
-
   .main-area {
     position: relative;
     overflow: hidden;

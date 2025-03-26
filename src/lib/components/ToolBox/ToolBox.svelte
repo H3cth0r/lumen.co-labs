@@ -8,7 +8,10 @@
 
 <style>
   .toolbox {
+    display: flex;
+    width: 100%;
+    height: 100%;
     color: white;
-    padding: 1rem;
+    background-color: blue;
   }
 </style>
