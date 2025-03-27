@@ -14,7 +14,6 @@
 <Workbench>
   
       <ToolBox slot="toolbox">
-        <p>adf</p>
         <button on:click={handleExport}>Export as Image</button>
       </ToolBox>
       <Canvas 
