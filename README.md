@@ -2,6 +2,10 @@
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
+## TODO
+- Create crop image component.
+- Create crop image calculator modal.
+
 ## Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
