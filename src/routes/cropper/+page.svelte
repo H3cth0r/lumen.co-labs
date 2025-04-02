@@ -2,7 +2,7 @@
   import { Cropper } from "$lib/components";
 </script>
 
-<Cropper width="400px" height="300px" x={200} y={200}>
+<Cropper width="200px" height="200px" centerX={300} centerY={100}>
   <img 
     src="https://mir-s3-cdn-cf.behance.net/projects/404/a31ea9161476565.Y3JvcCwyNDgwLDE5MzksMCw3ODU.jpg" 
     alt="Croppable image"
