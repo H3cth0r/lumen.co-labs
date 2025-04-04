@@ -77,5 +77,6 @@
   .cropper-container {
     display: inline-block;
     background-color: red;
+    vertical-align: top;
   }
 </style>
