@@ -1,26 +1,16 @@
 <script>
   import { Cropper } from "$lib/components";
+
 </script>
 
-<Cropper width="200px" height="200px" centerX={300} centerY={100}>
+
+<Cropper width="50vw" height="50vh" centerX="20%" centerY="20%">
   <img 
     src="https://mir-s3-cdn-cf.behance.net/projects/404/a31ea9161476565.Y3JvcCwyNDgwLDE5MzksMCw3ODU.jpg" 
     alt="Croppable image"
-  style="display: block;"
+    style="display: block;"
   />
 </Cropper>
-<div class="separator">
-</div>
-<img 
-  src="https://mir-s3-cdn-cf.behance.net/projects/404/a31ea9161476565.Y3JvcCwyNDgwLDE5MzksMCw3ODU.jpg" 
-  alt="Croppable image"
-  style="display: block;"
-/>
 
 <style>
-  .separator {
-    width: 100%;
-    height: 50px;
-    background-color: green;
-  }
 </style>
